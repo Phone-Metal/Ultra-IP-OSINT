@@ -22,8 +22,24 @@ ip }
 
 #Function 
 
-
 #Shell execution & perpetual-like execution
 clear && banner 
+clear && apt-get update && apt-get install curl -qq > /dev/null 
+banner 
+	
+echo -e "Enter \e[92mIP Address:"
 
-echo "Currency : $(curl http://ipwhois.app/line/8.8.4.4?objects=currency  > ip.txt && ip)" 
+read ip_address 
+
+echo "Start Time : $(date) && Current Directory: $(pwd)" 
+echo -e "\e[92mConducting Automated \e[100mOSINT"
+echo "Currency Code - Rates - Symbol : $(curl http://ipwhois.app/line/$ip_address?objects=currency_code,currency_symbol,currency_rates,> ip.txt && ip)" 
+echo "Currency : $(curl http://ipwhois.app/line/$ip_address?objects=currency  > ip.txt && ip)" 
+echo "Currency : $(curl http://ipwhois.app/line/$ip_address?objects=currency  > ip.txt && ip)" 
+echo "Currency : $(curl http://ipwhois.app/line/$ip_address?objects=currency  > ip.txt && ip)" 
+echo "Currency : $(curl http://ipwhois.app/line/$ip_address?objects=currency  > ip.txt && ip)" 
+echo "Currency : $(curl http://ipwhois.app/line/$ip_address?objects=currency  > ip.txt && ip)" 
+echo "Currency : $(curl http://ipwhois.app/line/$ip_address?objects=currency  > ip.txt && ip)" 
+echo "Currency : $(curl http://ipwhois.app/line/$ip_address?objects=currency  > ip.txt && ip)" 
+echo "Currency : $(curl http://ipwhois.app/line/$ip_address?objects=currency  > ip.txt && ip)" 
+echo "ISP : $(curl http://ipwhois.app/line/$ip_address?objects=isp  > ip.txt && ip)" 
