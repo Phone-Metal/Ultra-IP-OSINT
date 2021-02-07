@@ -16,14 +16,13 @@ echo -e " \e[92m         ####      ##"
 } 
 
 #Function
-ip_alias() {
+
 alias ip = 'touch report.txt && echo ip.txt && sleep 30 && rm -rf ip.txt' 
-ip } 
+
 
 #Function 
 
 #Shell execution & perpetual-like execution
-clear && banner 
 clear && apt-get update && apt-get install curl -qq > /dev/null 
 banner 
 	
