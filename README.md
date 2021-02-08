@@ -1,6 +1,6 @@
 # Automated IP-OSINT :
 A Simple Script To Automated Your IP Information Gathering OSINT Needs. 
-
+![IP OSINT](https://github.com/Phone-Metal/IP-OSINT-/blob/main/1612767709-picsay.png)
 ## Features :
 
 <--> Queries And Gets Detailed Information About :
