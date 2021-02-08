@@ -38,12 +38,14 @@ Should Work With Anything That Has *Bash* And The Basic Packages
 Then :
 
 `apt-get install curl coreutils script git -qq > /dev/null && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT`
- `cd Ultra-IP-OSINT && bash ip.sh`
+ 
+`cd Ultra-IP-OSINT && bash ip.sh`
 
 #### Cent OS : 
 
 `sudo yum update && yum check-update`
  
+
 `sudo yum install -y git coreutils script git curl && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT && cd Ultra-IP-OSINT && bash ip.sh`
 
 #### Fedora :
