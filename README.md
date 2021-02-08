@@ -1,16 +1,15 @@
 # Automated IP-OSINT :
-A Simple Script To Automated Your IP Information Gathering OSINT Needs. 
+#### A Simple Script To Automated Your IP Information Gathering OSINT Needs. 
 ![IP OSINT](https://github.com/Phone-Metal/IP-OSINT-/blob/main/1612767709-picsay.png)
 ## Features :
 
-<--> Queries And Gets Detailed Information About :
-
-     ---
+<--> Currently Queries And Gets Detailed Information About :
 
 * Currency Code-Rates-Symbol
 * IP address type
 * City & Region
-* Protocols & Reports or Records 
+* Protocols 
+* Reports or Records 
 * Longitude & Latitude
 * Country neighbours 
 * Country phone
@@ -29,7 +28,7 @@ A Simple Script To Automated Your IP Information Gathering OSINT Needs.
 
 ### Installing : 
 
-Should Work With Anything That Has *Bash* And The Basic Packages
+Should Work With Anything That Has [Bash](https://ftp.gnu.org/gnu/bash/) And The Basic Packages
 
 #### For Debian Based Systems (Including *Termux*) :
 
@@ -57,8 +56,14 @@ Afterwards Navigate To the Directory :
 `sudo dnf install -y git coreutils script curl && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT/ && cd Ultra-IP-OSINT && bash ip.sh`
 
 ##### <Status : Alpha>
+If You Encounter Bugs Or Dislike The Code Workarounds Just Open An Issue All Contributions Are 
+Really Appreciated :D
 
-## Uses :
+### License : 
+
+[Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+## This Script Uses :
 
 * Threat Crowd API Version 2
 * IP Whois API
