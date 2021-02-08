@@ -27,11 +27,14 @@ A Simple Script To Automated Your IP Information Gathering OSINT Needs.
 Should Work With Anything That Has *Bash* And The Basic Packages
 
 #### For Debian Based Systems (Including *Termux*) :
+
 `apt-get update && apt-get upgrade`
 
 Then :
 
-`apt-get install curl coreutils script git -qq > /dev/null`
+`apt-get install curl coreutils script git -qq > /dev/null && git clone https://github.com/Phone-Metal/IP-OSINT`
+ `cd IP-OSINT && bash ip.sh`
+##### Status : Beta
 
 ## Uses :
 
