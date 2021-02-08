@@ -37,22 +37,22 @@ Should Work With Anything That Has *Bash* And The Basic Packages
 
 Then :
 
-`apt-get install curl coreutils script git -qq > /dev/null && git clone https://github.com/Phone-Metal/IP-OSINT`
- `cd IP-OSINT && bash ip.sh`
+`apt-get install curl coreutils script git -qq > /dev/null && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT`
+ `cd Ultra-IP-OSINT && bash ip.sh`
 
 #### Cent OS : 
 
 `sudo yum update && yum check-update`
  
-`sudo yum install -y git coreutils script git curl && git clone https://github.com/Phone-Metal/IP-OSINT && cd IP-OSINT && bash ip.sh`
+`sudo yum install -y git coreutils script git curl && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT && cd Ultra-IP-OSINT && bash ip.sh`
 
 #### Fedora :
 
 `dnf check-update && sudo dnf upgrade`
 
-`sudo dnf install -y git coreutils script curl && git clone https://github.com/Phone-Metal/IP-OSINT && cd IP-OSINT && bash ip.sh`
+`sudo dnf install -y git coreutils script curl && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT/ && cd Ultra-IP-OSINT && bash ip.sh`
 
-##### Status : Beta
+##### <Status : Alpha>
 
 ## Uses :
 
