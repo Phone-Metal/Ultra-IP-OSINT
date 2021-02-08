@@ -31,7 +31,7 @@ echo -e "Enter \e[92mIP Address:"
 read ip_address 
 
 echo "Start Time : $(date) && Current Directory: $(pwd)" 
-echo -e "\e[92mConducting Automated \e[100mOSINT"
+echo -e "\e[92mConducting Automated \e[100mOSINT With IPWHOIS"
 echo "Currency Code-Rates-Symbol : $(curl http://ipwhois.app/line/$ip_address?objects=currency_code,currency_symbol,currency_rates,> ip.txt && ip)" 
 echo "IP address type : $(curl http://ipwhois.app/line/$ip_address?objects=type  > ip.txt && ip)" 
 echo "City : $(curl http://ipwhois.app/line/$ip_address?objects=city  > ip.txt && ip)" 
@@ -51,3 +51,6 @@ echo " : $(curl http://ipwhois.app/line/$ip_address?objects=  > ip.txt && ip)"
 echo " : $(curl http://ipwhois.app/line/$ip_address?objects=  > ip.txt && ip)" 
 echo " : $(curl http://ipwhois.app/line/$ip_address?objects=  > ip.txt && ip)" 
 echo "Amount of API calls for the current month : $(curl http://ipwhois.app/line/$ip_address?objects=completed_requests  > ip.txt && ip)" 
+echo "Conducting Automated OSINT with ROBOTEX FREE API" 
+#workaround because I'm lazy 
+curl https://freeapi.robtex.com/ipquery/199.19.54.1 | jq | tr -d }{[] > robtex_report.txt && echo cat robtex_report.txt
