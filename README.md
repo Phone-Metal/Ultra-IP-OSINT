@@ -61,7 +61,7 @@ Then :
 
 * Bulk IP Lookup
 * Get More Information About IP 
-* Detect Malicious IP Or If Reported <Improved>
+* Detect Malicious IP Or If Reported (Improve) 
 
 ## This Script Uses :
 
@@ -74,8 +74,8 @@ Then :
 
 #### *<-Status : Alpha->*
  
-If You Encounter Bugs Or Dislike The Code Workarounds Just Open An Issue And All Contributions Are 
-Really Appreciated :D
+If You Encounter Bugs Just Open An Issue 
+Or Dislike The Code Workarounds Or Spotted A Mistake All Contributions Are Really Appreciated :D
 
 ### License : 
 
