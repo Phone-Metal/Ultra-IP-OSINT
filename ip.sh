@@ -53,4 +53,6 @@ echo " : $(curl http://ipwhois.app/line/$ip_address?objects=  > ip.txt && ip)"
 echo "Amount of API calls for the current month : $(curl http://ipwhois.app/line/$ip_address?objects=completed_requests  > ip.txt && ip)" 
 echo "Conducting Automated OSINT with ROBOTEX FREE API" 
 #workaround because I'm lazy 
-curl https://freeapi.robtex.com/ipquery/199.19.54.1 | jq | tr -d }{[] > robtex_report.txt && echo cat robtex_report.txt
+curl https://freeapi.robtex.com/ipquery/ip_address | jq | tr -d }{[] > robtex_report-$ip_address.txt && cat robtex_report-$ip_address.txt
+echo "Conducting Automated OSINT with THREAT CROWD" 
+curl https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=188.40.75.132 | jq | tr -d {}[] > threatcrowd_report-$ip_address.txt && cat threatcrowd_report-$ip_address.txt
