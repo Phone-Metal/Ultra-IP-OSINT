@@ -19,6 +19,7 @@ sleep 5
 #Function 
 
 #Shell execution & perpetual-like execution
+# not clean code :p
 clear && apt-get update && apt-get install curl -qq > /dev/null 
 banner 
 	
@@ -30,7 +31,7 @@ script --log-out Report_For-$ip_address.txt
 
 echo "Start Time : $(date) && Current Directory: $(pwd)" 
 echo -e "\e[92mConducting Automated \e[100mOSINT With IPWHOIS"
-echo "Currency Code-Rates-Symbol : $(curl http://ipwhois.app/line/$ip_address?objects=currency_code,currency_symbol,currency_rates)" 
+echo "\e[92m\e[5mCurrency Code-Rates-Symbol : $(curl http://ipwhois.app/line/$ip_address?objects=currency_code,currency_symbol,currency_rates)" 
 echo "IP address type : $(curl http://ipwhois.app/line/$ip_address?objects=type)" 
 echo "City : $(curl http://ipwhois.app/line/$ip_address?objects=city)" 
 echo "Region : $(curl http://ipwhois.app/line/$ip_address?objects=region)" 
@@ -40,7 +41,7 @@ echo "Country neighbours : $(curl http://ipwhois.app/line/$ip_address?objects=co
 echo "Country phone : $(curl http://ipwhois.app/line/$ip_address?objects=country_phone)" 
 echo "Country capital : $(curl http://ipwhois.app/line/$ip_address?objects=country_capital)" 
 echo "Country code : $(curl http://ipwhois.app/line/$ip_address?objects=country_code)" 
-echo "Currency : $(curl http://ipwhois.app/line/$ip_address?objects=)" 
+echo "Currency : $(curl http://ipwhois.app/line/$ip_address?objects=currency)" 
 echo "ISP : $(curl http://ipwhois.app/line/$ip_address?objects=isp)" 
 echo "Timezone name : $(curl http://ipwhois.app/line/$ip_address?objects=timezone_name)" 
 echo "Timezone : $(curl http://ipwhois.app/line/$ip_address?objects=timezone)" 
@@ -62,4 +63,4 @@ echo "Conducting Automated OSINT with ANY.GE API"
 curl https://any.ge/api/ip/api.php?$ip_address | tr -d "{}"
 exit
 echo -e "\e[92mOutput Should Be Saved To Report_For-<IP Address>.txt" 
-echo "If Something Went Wrong Please Consider Opening An Issue"
+echo "\e[1mIf Something Went Wrong Please Consider Opening An Issue"
