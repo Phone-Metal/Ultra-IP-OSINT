@@ -22,13 +22,16 @@ A Simple Script To Automated Your IP Information Gathering OSINT Needs.
 * Bgproute & Routedesc & Whoisdesc
 * Organisation 
 
-### Installing :
+### Installing : 
+
 Should Work With Anything That Has *Bash* And The Basic Packages
 
-####For Debian Based Systems (Including Termux) :
+#### For Debian Based Systems (Including *Termux*) :
 `apt-get update && apt-get upgrade`
+
 Then :
-`apt-get install curl coreutils git -qq > /dev/null`
+
+`apt-get install curl coreutils script git -qq > /dev/null`
 
 ## Uses :
 
