@@ -49,15 +49,17 @@ echo "Amount of API calls for the current month : $(curl http://ipwhois.app/line
 echo "" 
 echo "Conducting Automated OSINT with ROBTEX FREE API:" 
 #workaround because I'm lazy 
-curl https://freeapi.robtex.com/ipquery/ip_address | jq | tr -d }{[] 
+curl https://freeapi.robtex.com/ipquery/$ip_address | jq | tr -d }{[] 
 echo "" 
 echo "Conducting Automated OSINT with THREAT CROWD" 
-curl https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=188.40.75.132 | jq | tr -d {}[] 
+curl https://www.threatcrowd.org/searchApi/v2/ip/report/?$ip_address | jq | tr -d {}[] 
 echo "" 
 gvar = https://www.google.com/search?&ie=UTF-8&oe=UTF-8&q=intext:%$ip_address 
 echo "Conducting Automated OSINT with Google" 
 echo "URL : $gvar" 
-
+echo "" 
+echo "Conducting Automated OSINT with ANY.GE API" 
+curl https://any.ge/api/ip/api.php?$ip_address | tr -d "{}"
 exit
 echo -e "\e[92mOutput Should Be Saved To Report_For-<IP Address>.txt" 
 echo "If Something Went Wrong Please Consider Opening An Issue"
