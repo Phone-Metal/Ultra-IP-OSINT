@@ -20,7 +20,7 @@ sleep 5
 
 #Shell execution & perpetual-like execution
 # not clean code :p
-clear && apt-get update && apt-get install curl -qq > /dev/null 
+clear && apt-get update && clear 
 banner 
 	
 echo -e "Enter \e[92mIP Address:"
