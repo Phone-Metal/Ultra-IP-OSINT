@@ -3,7 +3,7 @@ A Simple Script To Automated Your IP Information Gathering OSINT Needs.
 
 ## Features :
 
-- Queries And Gets Information About :
+-- Queries And Gets Information About :
 * Currency Code-Rates-Symbol
 * IP address type
 * City & Region
@@ -20,10 +20,11 @@ A Simple Script To Automated Your IP Information Gathering OSINT Needs.
 * Destination port a Malicious packet was sent to & Source port the blocked packet came from 
 * AS & Asname
 * Bgproute & Routedesc & Whoisdesc
-* Organisation
+* Organisation 
 
 
 ## Uses :
+
 * Threat Crowd API Version 2
 * IP Whois API
 * RobTex Freeapi
