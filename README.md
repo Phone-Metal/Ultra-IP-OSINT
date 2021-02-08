@@ -3,7 +3,7 @@ A Simple Script To Automated Your IP Information Gathering OSINT Needs.
 
 ## Features :
 
--- Queries And Gets Information About :
+-- Queries And Gets Detailed Information About :
 * Currency Code-Rates-Symbol
 * IP address type
 * City & Region
@@ -30,3 +30,4 @@ A Simple Script To Automated Your IP Information Gathering OSINT Needs.
 * RobTex Freeapi
 * Google 
 * DShield API
+* any.ge IP Address API
