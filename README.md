@@ -4,6 +4,9 @@ A Simple Script To Automated Your IP Information Gathering OSINT Needs.
 ## Features :
 
 <--> Queries And Gets Detailed Information About :
+
+     <--><--><-->
+
 * Currency Code-Rates-Symbol
 * IP address type
 * City & Region
@@ -22,6 +25,8 @@ A Simple Script To Automated Your IP Information Gathering OSINT Needs.
 * Bgproute & Routedesc & Whoisdesc
 * Organisation 
 
+     <--><--><-->
+
 ### Installing : 
 
 Should Work With Anything That Has *Bash* And The Basic Packages
@@ -34,6 +39,19 @@ Then :
 
 `apt-get install curl coreutils script git -qq > /dev/null && git clone https://github.com/Phone-Metal/IP-OSINT`
  `cd IP-OSINT && bash ip.sh`
+
+#### Cent OS : 
+
+`sudo yum update && yum check-update`
+ 
+`sudo yum install -y git coreutils script git curl && git clone https://github.com/Phone-Metal/IP-OSINT && cd IP-OSINT && bash ip.sh`
+
+#### Fedora :
+
+`dnf check-update && sudo dnf upgrade`
+
+`sudo dnf install -y git coreutils script curl && git clone https://github.com/Phone-Metal/IP-OSINT && cd IP-OSINT && bash ip.sh`
+
 ##### Status : Beta
 
 ## Uses :
