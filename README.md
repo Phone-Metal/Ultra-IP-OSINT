@@ -57,13 +57,11 @@ Then :
 
 `sudo dnf install -y git coreutils script curl && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT/ && cd Ultra-IP-OSINT && bash ip.sh`
 
-##### *<-Status : Alpha->* 
-If You Encounter Bugs Or Dislike The Code Workarounds Just Open An Issue And All Contributions Are 
-Really Appreciated :D
+### To do :
 
-### License : 
-
-[Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+* Bulk IP Lookup
+* Get More Information About IP 
+* Detect Malicious IP Or If Reported <Improved>
 
 ## This Script Uses :
 
@@ -73,3 +71,13 @@ Really Appreciated :D
 * Google 
 * DShield API
 * Any.ge IP Address API
+
+#### *<-Status : Alpha->*
+ 
+If You Encounter Bugs Or Dislike The Code Workarounds Just Open An Issue And All Contributions Are 
+Really Appreciated :D
+
+### License : 
+
+[Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
