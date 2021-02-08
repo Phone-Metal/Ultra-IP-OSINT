@@ -15,11 +15,7 @@ echo -e " \e[92m         ####      ##"
  echo -e "\e[43m~  ~   ~  ~ Automated ip OSINT Script~  ~   ~  ~"
 } 
 
-#Function
-
-alias ip = 'touch report.txt && echo ip.txt && sleep 30 && rm -rf ip.txt' 
-
-
+sleep 5
 #Function 
 
 #Shell execution & perpetual-like execution
@@ -27,8 +23,10 @@ clear && apt-get update && apt-get install curl -qq > /dev/null
 banner 
 	
 echo -e "Enter \e[92mIP Address:"
-script --log-out Report_For-$ip_address.txt
+
 read ip_address 
+
+script --log-out Report_For-$ip_address.txt
 
 echo "Start Time : $(date) && Current Directory: $(pwd)" 
 echo -e "\e[92mConducting Automated \e[100mOSINT With IPWHOIS"
@@ -47,12 +45,14 @@ echo "ISP : $(curl http://ipwhois.app/line/$ip_address?objects=isp)"
 echo "Timezone name : $(curl http://ipwhois.app/line/$ip_address?objects=timezone_name)" 
 echo "Timezone : $(curl http://ipwhois.app/line/$ip_address?objects=timezone)" 
 echo "Organisation : $(curl http://ipwhois.app/line/$ip_address?objects=org)" 
-echo "Amount of API calls for the current month : $(curl http://ipwhois.app/line/$ip_address?objects=completed_requests  > ip.txt && ip)" 
-echo "Conducting Automated OSINT with ROBOTEX FREE API" 
+echo "Amount of API calls for the current month : $(curl http://ipwhois.app/line/$ip_address?objects=completed_requests)" 
+echo "" 
+echo "Conducting Automated OSINT with ROBOTEX FREE API:" 
 #workaround because I'm lazy 
 curl https://freeapi.robtex.com/ipquery/ip_address | jq | tr -d }{[] 
+echo "" 
 echo "Conducting Automated OSINT with THREAT CROWD" 
 curl https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=188.40.75.132 | jq | tr -d {}[] 
 exit
-echo -e "\e[92mOutput Should Be Saved To Report_For-$ip_address.txt
+echo -e "\e[92mOutput Should Be Saved To Report_For-<IP Address>.txt" 
 echo "If Something Went Wrong Please Consider Opening An Issue"
