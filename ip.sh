@@ -47,7 +47,7 @@ echo "Timezone : $(curl http://ipwhois.app/line/$ip_address?objects=timezone)"
 echo "Organisation : $(curl http://ipwhois.app/line/$ip_address?objects=org)" 
 echo "Amount of API calls for the current month : $(curl http://ipwhois.app/line/$ip_address?objects=completed_requests)" 
 echo "" 
-echo "Conducting Automated OSINT with ROBOTEX FREE API:" 
+echo "Conducting Automated OSINT with ROBTEX FREE API:" 
 #workaround because I'm lazy 
 curl https://freeapi.robtex.com/ipquery/ip_address | jq | tr -d }{[] 
 echo "" 
