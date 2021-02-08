@@ -5,7 +5,7 @@ A Simple Script To Automated Your IP Information Gathering OSINT Needs.
 
 <--> Queries And Gets Detailed Information About :
 
-     <--><--><-->
+     ---
 
 * Currency Code-Rates-Symbol
 * IP address type
@@ -25,7 +25,7 @@ A Simple Script To Automated Your IP Information Gathering OSINT Needs.
 * Bgproute & Routedesc & Whoisdesc
 * Organisation 
 
-     <--><--><-->
+     ---
 
 ### Installing : 
 
@@ -38,7 +38,9 @@ Should Work With Anything That Has *Bash* And The Basic Packages
 Then :
 
 `apt-get install curl coreutils script git -qq > /dev/null && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT`
- 
+
+Afterwards Navigate To the Directory :
+
 `cd Ultra-IP-OSINT && bash ip.sh`
 
 #### Cent OS : 
