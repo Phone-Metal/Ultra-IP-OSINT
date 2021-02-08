@@ -23,11 +23,10 @@ sleep 5
 clear && apt-get update && clear 
 banner 
 	
-echo -e "Enter \e[92mIP Address:"
-
+echo -e "Enter IP Address:"
 read ip_address 
 
-script --log-out Report_For-$ip_address.txt
+script 
 
 echo "Start Time : $(date) && Current Directory: $(pwd)" 
 echo -e "\e[92mConducting Automated \e[100mOSINT With IPWHOIS"
@@ -61,6 +60,6 @@ echo "URL : $gvar"
 echo "" 
 echo "Conducting Automated OSINT with ANY.GE API" 
 curl https://any.ge/api/ip/api.php?$ip_address | tr -d "{}"
-exit
+script --log-out Report_For-$ip_address.txt 
 echo -e "\e[92mOutput Should Be Saved To Report_For-<IP Address>.txt" 
 echo "\e[1mIf Something Went Wrong Please Consider Opening An Issue"
