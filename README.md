@@ -12,7 +12,6 @@
 * Reports or Records 
 * Longitude & Latitude
 * Country neighbours 
-* Country phone
 * Country phone 
 * Country capital 
 * Country code 
@@ -46,6 +45,7 @@ Afterwards Navigate To the Directory :
 
 `sudo yum update && yum check-update`
  
+Then :
 
 `sudo yum install -y git coreutils script git curl && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT && cd Ultra-IP-OSINT && bash ip.sh`
 
@@ -53,10 +53,12 @@ Afterwards Navigate To the Directory :
 
 `dnf check-update && sudo dnf upgrade`
 
+Then :
+
 `sudo dnf install -y git coreutils script curl && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT/ && cd Ultra-IP-OSINT && bash ip.sh`
 
-##### <Status : Alpha>
-If You Encounter Bugs Or Dislike The Code Workarounds Just Open An Issue All Contributions Are 
+##### *<-Status : Alpha->* 
+If You Encounter Bugs Or Dislike The Code Workarounds Just Open An Issue And All Contributions Are 
 Really Appreciated :D
 
 ### License : 
