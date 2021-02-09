@@ -38,7 +38,7 @@ Should Work With Anything That Has [Bash](https://ftp.gnu.org/gnu/bash/) And The
 
 Then :
 
-* `apt-get install curl coreutils script jq git -qq > /dev/null && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT` *
+* `apt-get install curl coreutils script jq git -qq > /dev/null && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT` 
 
 Afterwards Navigate To the Directory :
 
