@@ -1,5 +1,7 @@
 #!/bin/bash
 #Draft ip
+#Created By Phone-Metal (https://github.com/Phone-Metal) 
+#Attribution-NonCommercial 4.0 International License 
 
 #Not the best code but still works :D
 
