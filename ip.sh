@@ -39,38 +39,51 @@ sleep 1.5
 ip_whois() {
 sleep 0.7
 echo -e "Conducting Automated OSINT With IPWHOIS"
-echo "Currency Code-Rates-Symbol : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=currency_code,currency_symbol,currency_rates)" 
-echo "IP address type : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=type)" 
-echo "City : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=city)" 
-echo "Region : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=region)" 
-echo "Longitude : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=longitude)" 
-echo "Latitude : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=latitude)" 
+echo "" 
+echo "Currency  : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=currency)" 
+echo "Currency Rates : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=currency_rates)" 
+echo "Currency Symbol : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=currency_symbol)" 
 echo "Country neighbours : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=country_neighbours)" 
 echo "Country phone : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=country_phone)" 
 echo "Country capital : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=country_capital)" 
 echo "Country code : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=country_code)" 
-echo "Currency : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=currency)" 
+echo "Currency Code : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=currency_code)" 
+echo ""
 echo "ISP : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=isp)" 
+echo "IP address type : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=type)" 
+echo ""
+echo "City : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=city)" 
+echo "Region : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=region)" 
+echo ""
+echo "Longitude : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=longitude)" 
+echo "Latitude : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=latitude)" 
+echo ""
 echo "Timezone name : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=timezone_name)" 
 echo "Timezone : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=timezone)" 
+echo ""
 echo "Organisation : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=org)" 
-echo "Amount of API calls for the current month : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=completed_requests)"
+echo ""
+echo "Amount of Free IPWHOIS API calls for the current month : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=completed_requests)"
 } 
 
 echo "" 
 echo "Conducting Automated OSINT with ROBTEX FREE API:" 
+echo "" 
 #workaround because I'm lazy 
 #robtex
 sleep 2.1
 echo "Robtex Report:"
+echo ""
 curl  -sS https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]"  
 curl  -sS https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]" 2>/dev/null > ROBTEX_REPORT.txt
 #TC
 sleep 1.9
 echo "" 
 echo "Conducting Automated OSINT with THREAT CROWD" 
+echo "" 
 #curl https://www.threatcrowd.org/searchApi/v2/ip/report/?"$ip_address" | jq | tr -d "{}[]" 
 echo "Threat Crowd Report:" 
+echo ""
 curl  -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 
 curl  -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 2>/dev/null > THREATCROWD_REPORT.txt
 #call Function 
@@ -80,6 +93,7 @@ ip_whois
 ip_whois 2>/dev/null > IPWHOIS_Report.txt  
 echo "Conducting Automated OSINT with ANY.GE API" 
 echo "Any.ge Report:" 
+echo "" 
 curl  -sS https://any.ge/api/ip/api.php?$ip_address | tr -d "{}"
 curl  -sS https://any.ge/api/ip/api.php?$ip_address | tr -d "{}" 2>/dev/null > ANYGE_report.txt
 
@@ -93,6 +107,7 @@ echo "URL : $gvar"
 echo "Conducting Automated OSINT with DSHIELD API" 
 sleep 0.9
 echo "DShield API Report:" 
+echo "" 
 curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" | jq 
 curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" | jq
 curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" | jq 2>/dev/null > DH_report.txt
@@ -110,15 +125,18 @@ elif [[ -n "$mal" ]]; then
   echo "Didn't Match Any Malicious IP On List" > MAL_REPORT.txt
   fi
 
-echo "OSINT Finished!" 
-echo " =========================" 
-echo "|==> Generating Report <==|"
-echo " =========================" 
+echo "<><><>| OSINT Finished !|<><><>" 
+echo "" 
+echo " <=========================>" 
+echo "<|==> Generating Report <==|>"
+echo " <=========================>" 
 cat IPWHOIS_Report.txt DH_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt > $ip_address-Report.txt
 rm -rf IPWHOIS_Report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt
 echo -e "Output Should Be Saved To <IP address>.txt" 
 sleep 1.9
 echo "View Report Now?(y/n)" 
+echo "Note Press ENTER <-| For Next Page/Info" 
+sleep 0.9
 read report
 if [ $report == y ]
 then
