@@ -1,7 +1,7 @@
 # Automated IP-OSINT :
 [![License: IP OSINT](https://img.shields.io/badge/lP-OSINT-f39f37)](https://github.com/Phone-Metal/Ultra-IP-OSINT)  
 ![](https://img.shields.io/badge/Scripted%20In-Bash-f39f37)   ![](https://img.shields.io/badge/Status:%20Alpha-f54f38)
-#### A Simple Script To Automated Your IP Information Gathering OSINT Needs. 
+#### A Simple Bash Script To Automated Your IP Information Gathering OSINT Needs. 
 ![IP OSINT](https://github.com/Phone-Metal/IP-OSINT-/blob/main/1612767709-picsay.png)
 ## Features :
 
