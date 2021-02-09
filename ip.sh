@@ -95,7 +95,7 @@ if [[ -z "$mal" ]]; then
   echo "Not Malicious" 
   echo "Didn't Match Any Malicious IP On List" < MAL_REPORT.txt
 elif [[ -n "$mal" ]]; then
-  echo "\e[1mMatch Found !,Thought To Be Malicious"
+  echo "Match Found !,Thought To Be Malicious"
 fi
 echo "OSINT Finished!" 
 echo "==> Generating Report <=="
