@@ -55,7 +55,7 @@ echo ""
 echo "Conducting Automated OSINT with THREAT CROWD" 
 curl https://www.threatcrowd.org/searchApi/v2/ip/report/?"$ip_address" | jq | tr -d "{}[]" 
 echo "" 
-gvar=https://www.google.com/search?&ie=UTF-8&oe=UTF-8&q=intext:%$ip_address 
+gvar="https://www.google.com/search?&ie=UTF-8&oe=UTF-8&q=intext:%$ip_address" 
 echo "Conducting Automated OSINT with Google" 
 echo "URL : $gvar" 
 echo "" 
