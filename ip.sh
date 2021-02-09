@@ -60,7 +60,7 @@ echo ""
 echo " \e[32m\e[1mConducting Automated OSINT with THREAT CROWD\e[21m" 
 #curl https://www.threatcrowd.org/searchApi/v2/ip/report/?"$ip_address" | jq | tr -d "{}[]" 
 curl https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 
-curl https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" > THREATCROWD_REPORT.txt
+curl https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 2>/dev/null > THREATCROWD_REPORT.txt
 echo "" 
 gvar="https://www.google.com/search?&ie=UTF-8&oe=UTF-8&q=intext:%$ip_address" 
 echo " \e[32mConducting Automated OSINT with Google\e[21m" 
@@ -88,7 +88,7 @@ echo " \e[32m\e[1mView Report Now?(y/n)\e[21m"
 read report
 if [ $report == y ]
 then
-   less $ip_address-Report.txt 
+   more $ip_address-Report.txt 
 else
    echo "\e[1mOkay,You Can View It Another Time"
 fi 
