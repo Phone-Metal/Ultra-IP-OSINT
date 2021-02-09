@@ -6,17 +6,17 @@
 banner() { 
 echo -e "_ _ _ \e[5m_IP-LOCATOR__ \e[25m_, __" 
                
-echo -e "             \e[92m ####    ######## "
+echo -e "             \e[92m ######   ######## #"
 echo -e "               \e[92m ##      ##     ##  "
 echo -e "              \e[92m ##      ##     ## "
-echo -e "              \e[92m ##     ########  "
+echo -e "              \e[92m##     ######### "
 echo -e " \e[92m            ##     ##"    
  echo -e " \e[92m          ##     ##"       
-echo -e " \e[92m         ####      ##"                                   
+echo -e " \e[92m         ####    ##"                                   
  echo -e "\e[43m~  ~   ~  ~ Automated ip OSINT Script~  ~   ~  ~"
 } 
 
-sleep 5
+sleep 1
 #Function 
 
 #Shell execution & perpetual-like execution
@@ -25,7 +25,7 @@ clear && apt-get update && clear
 banner 
 	
 echo -e "\e[21mEnter IP Address:"
-read -r ip_address 
+read -n -r ip_address 
 
 script 
 
@@ -61,6 +61,15 @@ echo "URL : $gvar"
 echo "" 
 echo "Conducting Automated OSINT with ANY.GE API" 
 curl https://any.ge/api/ip/api.php?"$ip_address" | tr -d "{}"
+echo "" 
+echo "Seeing If IP Was Thought To Be Malicious Among 42905+ IP's" 
+mal="grep -n "$ip_address" BlockIP.txt"
+if [[ -z "$mal" ]]; then
+  echo "Not Malicious"
+elif [[ -n "$mal" ]]; then
+  echo "Match Found !,Thought To Be Malicious"
+fi
+
 script --log-out Report_For-"$ip_address".txt 
 echo -e "\e[92mOutput Should Be Saved To Report_For-<IP Address>.txt" 
 echo "\e[1mIf Something Went Wrong Please Consider Opening An Issue"
