@@ -13,7 +13,7 @@ echo -e "              \e[92m##     ######### "
 echo -e " \e[92m            ##     ##"    
  echo -e " \e[92m          ##     ##"       
 echo -e " \e[92m         ####    ##"                                   
- echo -e "\e[43m~  ~   ~  ~ Automated ip OSINT Script~  ~   ~  ~"
+ echo -e "~  ~   ~  ~ Automated ip OSINT Script~  ~   ~  ~"
 } 
 
 sleep 1
@@ -21,14 +21,14 @@ sleep 1
 
 #Shell execution & perpetual-like execution
 # not clean code :p
-clear && apt-get update && clear 
+clear
 banner 
 	
 echo -e "\e[21mEnter IP Address:"
-read -n -r ip_address 
+read ip_address 
 
 script 
-
+ip_whois() {
 echo "Start Time : $(date) && Current Directory: $(pwd)" 
 echo -e "\e[92mConducting Automated \e[100mOSINT With IPWHOIS"
 echo "\e[92m\e[5mCurrency Code-Rates-Symbol \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=currency_code,currency_symbol,currency_rates)" 
@@ -46,7 +46,8 @@ echo "ISP : $(curl http://ipwhois.app/line/"$ip_address"?objects=isp)"
 echo "Timezone name : $(curl http://ipwhois.app/line/"$ip_address"?objects=timezone_name)" 
 echo "Timezone : $(curl http://ipwhois.app/line/"$ip_address"?objects=timezone)" 
 echo "Organisation : $(curl http://ipwhois.app/line/"$ip_address"?objects=org)" 
-echo "Amount of API calls for the current month : $(curl http://ipwhois.app/line/"$ip_address"?objects=completed_requests)" 
+echo "Amount of API calls for the current month : $(curl http://ipwhois.app/line/"$ip_address"?objects=completed_requests)" } 
+ip_whois 
 echo "" 
 echo "Conducting Automated OSINT with ROBTEX FREE API:" 
 #workaround because I'm lazy 
