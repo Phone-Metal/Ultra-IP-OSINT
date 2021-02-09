@@ -78,7 +78,7 @@ Then :
 #### ![](https://img.shields.io/badge/%20Bugs-f54f38) 
  
 If You Encounter Bugs Just Open An Issue 
-Or Dislike The Code Workarounds Or Spotted A Mistake All Contributions Are Really Appreciated :D
+All Contributions Are Really Appreciated :D
 
 ### License : 
 
