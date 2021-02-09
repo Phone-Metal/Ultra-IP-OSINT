@@ -4,16 +4,17 @@
 #Not the best code but still works :D
 
 banner_func() { 
-echo -e " \e[32m\e[1m _ _ \e[5m_IP-LOCATOR__ \e[25m_, __" 
+echo -e " 
+\e[32m\e[1m _ _ \e[5m_IP-LOCATOR__ \e[25m_, __" 
                
-echo -e "             \e[92m ######   ######## #"
-echo -e "               \e[92m ##      ##     ##  "
-echo -e "              \e[92m ##      ##     ## "
-echo -e "              \e[92m##     ######### "
-echo -e "\e[92m            ##     ##"    
- echo -e "\e[92m          ##     ##"       
-echo -e "\e[92m         ####    ##"                                   
-echo -e "\e[34m ~  ~   ~  ~ Automated ip OSINT Script~  ~   ~  ~"
+echo -e "             \e[5m\e[92m ######   ######## #"
+echo -e "               \e[5m\e[92m ##      ##     ##  "
+echo -e "              \e[5m\e[92m ##      ##     ## "
+echo -e "              \e[5m\e[92m##     ######### "
+echo -e "\e[5m\e[92m            ##     ##"    
+ echo -e "\e[5m\e[92m          ##     ##"       
+echo -e "\e[5m\e[92m         ####    ##"                                   
+echo -e "\e[5m\e[34m ~  ~   ~  ~ Automated IP OSINT Script~  ~   ~  ~"
 } 
 
 sleep 1
@@ -31,8 +32,9 @@ read ip_address
 mkdir $ip_address-Report && cd $ip_address-Report/
  
 ip_whois() {
-echo "\e[32m\e[1mStart Time : $(date) && Current Directory: $(pwd)" 
-echo -e "\e[1m\e[32mConducting Automated \e[100mOSINT With IPWHOIS"
+echo "\e[1m\e[32mStart Time : $(date) && Current Directory: $(pwd)" 
+sleep 1.5
+echo -e "\e[1m\e[32mConducting Automated OSINT With IPWHOIS"
 echo "\e[1m\e[32mCurrency Code-Rates-Symbol \e[21m: $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=currency_code,currency_symbol,currency_rates)" 
 echo " \e[1m\e[32mIP address type \e[21m: $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=type)" 
 echo " \e[1m\e[32mCity \e[21m: $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=city)" 
@@ -85,10 +87,12 @@ if [[ -z "$mal" ]]; then
 elif [[ -n "$mal" ]]; then
   echo "\e[1mMatch Found !,Thought To Be Malicious"
 fi
-echo "\e[1m\e[32mGenerating Report\e[21m" 
+echo "OSINT Finished!" 
+echo "\e[1m\e[32mGenerating Report\e[21m"
+sleep 1.9
 cat IPWHOIS_Report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt > $ip_address-Report.txt
 rm -rf IPWHOIS_Report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt
-echo -e "\e[92mOutput Should Be Saved To <IP address>.txt" 
+echo -e "\e[1m\e[32mOutput Should Be Saved To <IP address>.txt" 
 echo "\e[1m\e[32mView Report Now?(y/n)\e[21m" 
 read report
 if [ $report == y ]
