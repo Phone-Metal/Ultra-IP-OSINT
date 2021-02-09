@@ -21,7 +21,7 @@ sleep 1
 
 #Shell execution & perpetual-like execution
 # not clean code :p
-script 
+ 
 clear
 banner 
 	
@@ -29,7 +29,7 @@ echo -e "\e[21mEnter IP Address:"
 read ip_address 
 
  
-ip_whois_func() {
+ip_whois() {
 echo "Start Time : $(date) && Current Directory: $(pwd)" 
 echo -e "\e[92mConducting Automated \e[100mOSINT With IPWHOIS"
 echo "\e[92m\e[5mCurrency Code-Rates-Symbol \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=currency_code,currency_symbol,currency_rates)" 
@@ -47,8 +47,9 @@ echo "ISP : $(curl http://ipwhois.app/line/"$ip_address"?objects=isp)"
 echo "Timezone name : $(curl http://ipwhois.app/line/"$ip_address"?objects=timezone_name)" 
 echo "Timezone : $(curl http://ipwhois.app/line/"$ip_address"?objects=timezone)" 
 echo "Organisation : $(curl http://ipwhois.app/line/"$ip_address"?objects=org)" 
-echo "Amount of API calls for the current month : $(curl http://ipwhois.app/line/"$ip_address"?objects=completed_requests)" } 
-ip_whois_func
+echo "Amount of API calls for the current month : $(curl http://ipwhois.app/line/"$ip_address"?objects=completed_requests)"
+} 
+ip_whois
 echo "" 
 echo "Conducting Automated OSINT with ROBTEX FREE API:" 
 #workaround because I'm lazy 
@@ -72,6 +73,5 @@ elif [[ -n "$mal" ]]; then
   echo "Match Found !,Thought To Be Malicious"
 fi
 
-script --log-out Report_For-"$ip_address".txt 
-echo -e "\e[92mOutput Should Be Saved To Report_For-<IP Address>.txt" 
+##echo -e "\e[92mOutput Should Be Saved To Report_For-<IP Address>.txt" 
 echo "\e[1mIf Something Went Wrong Please Consider Opening An Issue"
