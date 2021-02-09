@@ -28,12 +28,13 @@ sleep 1
 clear
 banner_func 
 	
-echo -e "\e[1m\e[32mEnter IP Address:\e[21m"
-#echo "\e[21m(Note: The Report Feature Is A Bit Buggy)"
+echo -e "Enter IP Address:"
+#echo "\(Note: The Report Feature Is A Bit Buggy)"
 read ip_address 
 sleep 0.8
 mkdir $ip_address-Report && cd $ip_address-Report/
-echo "Start Time : $(date) && Current Directory: $(pwd)" 
+echo "Start Time : $(date)" 
+echo "Current Directory: $(pwd)" 
 sleep 1.5 
 ip_whois() {
 sleep 0.7
@@ -98,11 +99,13 @@ elif [[ -n "$mal" ]]; then
   echo "Match Found !,Thought To Be Malicious"
 fi
 echo "OSINT Finished!" 
-echo "==> Generating Report <=="
-sleep 1.9
+echo " =========================" 
+echo "|==> Generating Report <==|"
+echo " =========================" 
 cat IPWHOIS_Report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt > $ip_address-Report.txt
 rm -rf IPWHOIS_Report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt
 echo -e "Output Should Be Saved To <IP address>.txt" 
+sleep 1.9
 echo "View Report Now?(y/n)" 
 read report
 if [ $report == y ]
