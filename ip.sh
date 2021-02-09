@@ -4,7 +4,7 @@
 #Not the best code but still works :D
 
 banner_func() { 
-echo -e "_ _ _ \e[5m_IP-LOCATOR__ \e[25m_, __" 
+echo -e " \e[32m\e[1m _ _ \e[5m_IP-LOCATOR__ \e[25m_, __" 
                
 echo -e "             \e[92m ######   ######## #"
 echo -e "               \e[92m ##      ##     ##  "
@@ -26,7 +26,7 @@ clear
 banner_func 
 	
 echo -e "\e[1m\e[32mEnter IP Address:\e[21m"
-echo "\e[21m(Note: The Report Feature Is A Bit Buggy)"
+#echo "\e[21m(Note: The Report Feature Is A Bit Buggy)"
 read ip_address 
 mkdir $ip_address-Report && cd $ip_address-Report/
  
