@@ -13,7 +13,7 @@ echo -e "              \e[92m##     ######### "
 echo -e " \e[92m            ##     ##"    
  echo -e " \e[92m          ##     ##"       
 echo -e " \e[92m         ####    ##"                                   
- echo -e "~  ~   ~  ~ Automated ip OSINT Script~  ~   ~  ~"
+echo -e " \e[34m ~  ~   ~  ~ Automated ip OSINT Script~  ~   ~  ~"
 } 
 
 sleep 1
@@ -23,73 +23,73 @@ sleep 1
 # not clean code :p
  
 clear
-banner 
+banner_func 
 	
-echo -e "\e[21mEnter IP Address:"
-echo "(Note: The Report Feature Is A Bit Buggy)"
+echo -e "\e[1m\e[32mEnter IP Address:\e[21m"
+echo "\e[21m(Note: The Report Feature Is A Bit Buggy)"
 read ip_address 
-mkdir $ip_address-Report && cd $ip_address-Report
+mkdir $ip_address-Report && cd $ip_address-Report/
  
 ip_whois() {
-echo "Start Time : $(date) && Current Directory: $(pwd)" 
-echo -e "\e[92mConducting Automated \e[100mOSINT With IPWHOIS"
-echo "\e[92m\e[5mCurrency Code-Rates-Symbol \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=currency_code,currency_symbol,currency_rates)" 
-echo "IP address type : $(curl http://ipwhois.app/line/"$ip_address"?objects=type)" 
-echo "City : $(curl http://ipwhois.app/line/"$ip_address"?objects=city)" 
-echo "Region : $(curl http://ipwhois.app/line/"$ip_address"?objects=region)" 
-echo "Longitude : $(curl http://ipwhois.app/line/"$ip_address"?objects=longitude)" 
-echo "Latitude : $(curl http://ipwhois.app/line/"$ip_address"?objects=latitude)" 
-echo "Country neighbours : $(curl http://ipwhois.app/line/"$ip_address"?objects=country_neighbours)" 
-echo "Country phone : $(curl http://ipwhois.app/line/"$ip_address"?objects=country_phone)" 
-echo "Country capital : $(curl http://ipwhois.app/line/"$ip_address"?objects=country_capital)" 
-echo "Country code : $(curl http://ipwhois.app/line/"$ip_address"?objects=country_code)" 
-echo "Currency : $(curl http://ipwhois.app/line/"$ip_address"?objects=currency)" 
-echo "ISP : $(curl http://ipwhois.app/line/"$ip_address"?objects=isp)" 
-echo "Timezone name : $(curl http://ipwhois.app/line/"$ip_address"?objects=timezone_name)" 
-echo "Timezone : $(curl http://ipwhois.app/line/"$ip_address"?objects=timezone)" 
-echo "Organisation : $(curl http://ipwhois.app/line/"$ip_address"?objects=org)" 
-echo "Amount of API calls for the current month : $(curl http://ipwhois.app/line/"$ip_address"?objects=completed_requests)"
+echo " \e[32m\e[1mStart Time : $(date) && Current Directory: $(pwd)" 
+echo -e " \e[32m\e[1mConducting Automated \e[100mOSINT With IPWHOIS"
+echo " \e[32m\e[1mCurrency Code-Rates-Symbol \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=currency_code,currency_symbol,currency_rates)" 
+echo " \e[32m\e[1mIP address type \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=type)" 
+echo " \e[32m\e[1mCity \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=city)" 
+echo " \e[32m\e[1mRegion \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=region)" 
+echo " \e[32m\e[1mLongitude \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=longitude)" 
+echo " \e[32m\e[1mLatitude \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=latitude)" 
+echo " \e[32m\e[1mCountry neighbours \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=country_neighbours)" 
+echo " \e[32m\e[1mCountry phone \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=country_phone)" 
+echo " \e[32m\e[1mCountry capital \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=country_capital)" 
+echo " \e[32m\e[1mCountry code \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=country_code)" 
+echo " \e[32m\e[1mCurrency \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=currency)" 
+echo " \e[32m\e[1mISP \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=isp)" 
+echo " \e[32m\e[1mTimezone name \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=timezone_name)" 
+echo " \e[32m\e[1mTimezone \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=timezone)" 
+echo " \e[32m\e[1mOrganisation \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=org)" 
+echo " \e[32m\e[1mAmount of API calls for the current month \e[21m: $(curl http://ipwhois.app/line/"$ip_address"?objects=completed_requests)"
 } 
 
 echo "" 
-echo "Conducting Automated OSINT with ROBTEX FREE API:" 
+echo " \e[32m\e[1mConducting Automated OSINT with ROBTEX FREE API:\e[21m" 
 #workaround because I'm lazy 
 curl https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]"  
 curl https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]" > ROBTEX_REPORT.txt
 echo "" 
-echo "Conducting Automated OSINT with THREAT CROWD" 
+echo " \e[32m\e[1mConducting Automated OSINT with THREAT CROWD\e[21m" 
 #curl https://www.threatcrowd.org/searchApi/v2/ip/report/?"$ip_address" | jq | tr -d "{}[]" 
 curl https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 
 curl https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" > THREATCROWD_REPORT.txt
 echo "" 
 gvar="https://www.google.com/search?&ie=UTF-8&oe=UTF-8&q=intext:%$ip_address" 
-echo "Conducting Automated OSINT with Google" 
-echo "URL : $gvar" 
+echo " \e[32mConducting Automated OSINT with Google\e[21m" 
+echo " \e[32mURL \e[21m: $gvar" 
 echo "" 
 ip_whois
-ip_whois < IPWHOIS_Report.txt  
-echo "Conducting Automated OSINT with ANY.GE API" 
+ip_whois > IPWHOIS_Report.txt  
+echo " \e[32m\e[1mConducting Automated OSINT with ANY.GE API\e[21m" 
 curl https://any.ge/api/ip/api.php?"$ip_address" | tr -d "{}"
 curl https://any.ge/api/ip/api.php?"$ip_address" | tr -d "{}" > ANYGE_report.txt
 echo "" 
-echo "Seeing If IP Was Thought To Be Malicious Among 42905+ IP's" 
+echo " \e[32m\e[1mSeeing If IP Was Thought To Be Malicious Among 42905+ IP's\e[21m" 
 mal="grep -n "$ip_address" BlockIP.txt"
 if [[ -z "$mal" ]]; then
-  echo "Not Malicious" 
+  echo "\e[1mNot Malicious" 
   echo "Didn't Match Any Malicious IP On List" > MAL_REPORT.txt
 elif [[ -n "$mal" ]]; then
-  echo "Match Found !,Thought To Be Malicious"
+  echo "\e[1mMatch Found !,Thought To Be Malicious"
 fi
-echo "Generating Report" 
+echo " \e[32m\e[1mGenerating Report\e[21m" 
 cat IPWHOIS_Report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt > $ip_address-Report.txt
 rm -rf IPWHOIS_Report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt
 echo -e "\e[92mOutput Should Be Saved To <IP address>.txt" 
-echo "View Report Now?(y/n)" 
+echo " \e[32m\e[1mView Report Now?(y/n)\e[21m" 
 read report
 if [ $report == y ]
 then
    less $ip_address-Report.txt 
 else
-   echo "Okay,You Can View It Another Time"
+   echo "\e[1mOkay,You Can View It Another Time"
 fi 
-echo "\e[1mIf Something Went Wrong Please Consider Opening An Issue"
+echo " \e[32m\e[1mIf Something Went Wrong Please Consider Opening An Issue\e[21m"
