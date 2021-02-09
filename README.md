@@ -1,4 +1,6 @@
 # Automated IP-OSINT :
+[![License: IP OSINT](https://img.shields.io/badge/lP-OSINT-f39f37)](https://github.com/Phone-Metal/Ultra-IP-OSINT)  
+![](https://img.shields.io/badge/Scripted%20In-Bash-f39f37)
 #### A Simple Script To Automated Your IP Information Gathering OSINT Needs. 
 ![IP OSINT](https://github.com/Phone-Metal/IP-OSINT-/blob/main/1612767709-picsay.png)
 ## Features :
@@ -79,5 +81,6 @@ Or Dislike The Code Workarounds Or Spotted A Mistake All Contributions Are Reall
 
 ### License : 
 
-[Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
+#### Attribution-NonCommercial 4.0 International
+[![License: CC BY-NC 4.0](https://licensebuttons.net/l/by-nc/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc/4.0/)
