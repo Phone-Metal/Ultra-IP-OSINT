@@ -74,6 +74,7 @@ Then :
 * Google 
 * DShield API
 * Any.ge IP Address API
+* Manually Curated IP Blocklist by Pallebone
 
 #### ![](https://img.shields.io/badge/%20Bugs-f54f38) 
  
