@@ -54,23 +54,28 @@ echo " \e[32m\e[1mAmount of API calls for the current month \e[21m: $(curl http:
 echo "" 
 echo " \e[32m\e[1mConducting Automated OSINT with ROBTEX FREE API:\e[21m" 
 #workaround because I'm lazy 
-curl https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]"  
-curl https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]" > ROBTEX_REPORT.txt
+#robtex
+curl  -sS https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]"  
+curl  -sS https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]" 2>/dev/null > ROBTEX_REPORT.txt
+#TC
 echo "" 
 echo " \e[32m\e[1mConducting Automated OSINT with THREAT CROWD\e[21m" 
 #curl https://www.threatcrowd.org/searchApi/v2/ip/report/?"$ip_address" | jq | tr -d "{}[]" 
-curl https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 
-curl https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 2>/dev/null > THREATCROWD_REPORT.txt
+curl  -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 
+curl  -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 2>/dev/null > THREATCROWD_REPORT.txt
+# Google it
 echo "" 
 gvar="https://www.google.com/search?&ie=UTF-8&oe=UTF-8&q=intext:%$ip_address" 
 echo " \e[32mConducting Automated OSINT with Google\e[21m" 
 echo " \e[32mURL \e[21m: $gvar" 
+#call Function 
 echo "" 
 ip_whois
-ip_whois > IPWHOIS_Report.txt  
+ip_whois 2>/dev/null > IPWHOIS_Report.txt  
 echo " \e[32m\e[1mConducting Automated OSINT with ANY.GE API\e[21m" 
-curl https://any.ge/api/ip/api.php?"$ip_address" | tr -d "{}"
-curl https://any.ge/api/ip/api.php?"$ip_address" | tr -d "{}" > ANYGE_report.txt
+curl  -sS https://any.ge/api/ip/api.php?"$ip_address" | tr -d "{}"
+curl  -sS https://any.ge/api/ip/api.php?"$ip_address" | tr -d "{}" 2>/dev/null > ANYGE_report.txt
+#Check List 
 echo "" 
 echo " \e[32m\e[1mSeeing If IP Was Thought To Be Malicious Among 42905+ IP's\e[21m" 
 mal="grep -n "$ip_address" BlockIP.txt"
