@@ -3,7 +3,7 @@
 
 #Not the best code but still works :D
 
-banner(){ 
+banner() { 
 echo -e "_ _ _ \e[5m_IP-LOCATOR__ \e[25m_, __" 
                
 echo -e "             \e[92m ####    ######## "
@@ -25,7 +25,7 @@ clear && apt-get update && clear
 banner 
 	
 echo -e "\e[21mEnter IP Address:"
-read ip_address 
+read -r ip_address 
 
 script 
 
@@ -50,12 +50,12 @@ echo "Amount of API calls for the current month : $(curl http://ipwhois.app/line
 echo "" 
 echo "Conducting Automated OSINT with ROBTEX FREE API:" 
 #workaround because I'm lazy 
-curl https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d }{[] 
+curl https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]"
 echo "" 
 echo "Conducting Automated OSINT with THREAT CROWD" 
-curl https://www.threatcrowd.org/searchApi/v2/ip/report/?"$ip_address" | jq | tr -d {}[] 
+curl https://www.threatcrowd.org/searchApi/v2/ip/report/?"$ip_address" | jq | tr -d "{}[]" 
 echo "" 
-gvar = https://www.google.com/search?&ie=UTF-8&oe=UTF-8&q=intext:%$ip_address 
+gvar=https://www.google.com/search?&ie=UTF-8&oe=UTF-8&q=intext:%$ip_address 
 echo "Conducting Automated OSINT with Google" 
 echo "URL : $gvar" 
 echo "" 
