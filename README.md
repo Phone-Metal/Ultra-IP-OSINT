@@ -38,7 +38,7 @@ Should Work With Anything That Has [Bash](https://ftp.gnu.org/gnu/bash/) And The
 
 Then :
 
-`apt-get install curl coreutils script git -qq > /dev/null && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT`
+* `apt-get install curl coreutils script jq git -qq > /dev/null && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT` *
 
 Afterwards Navigate To the Directory :
 
@@ -50,7 +50,7 @@ Afterwards Navigate To the Directory :
  
 Then :
 
-`sudo yum install -y git coreutils script git curl && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT && cd Ultra-IP-OSINT && bash ip.sh`
+`sudo yum install -y git coreutils jq script git curl && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT && cd Ultra-IP-OSINT && bash ip.sh`
 
 #### Fedora :
 
@@ -58,7 +58,7 @@ Then :
 
 Then :
 
-`sudo dnf install -y git coreutils script curl && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT/ && cd Ultra-IP-OSINT && bash ip.sh`
+`sudo dnf install -y git coreutils jq script curl && git clone https://github.com/Phone-Metal/Ultra-IP-OSINT/ && cd Ultra-IP-OSINT && bash ip.sh`
 
 ### To do :
 
