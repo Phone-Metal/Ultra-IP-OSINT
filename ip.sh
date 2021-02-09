@@ -71,7 +71,7 @@ echo "Conducting Automated OSINT with ROBTEX FREE API:"
 echo "" 
 #workaround because I'm lazy 
 #robtex
-sleep 2.1
+sleep 1.5
 echo "Robtex Report:"
 echo ""
 curl  -sS https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]"  
@@ -84,20 +84,23 @@ echo ""
 #curl https://www.threatcrowd.org/searchApi/v2/ip/report/?"$ip_address" | jq | tr -d "{}[]" 
 echo "Threat Crowd Report:" 
 echo ""
-curl  -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 
-curl  -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 2>/dev/null > THREATCROWD_REPORT.txt
+curl -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 
+curl -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 2>/dev/null > THREATCROWD_REPORT.txt
 #call Function 
 echo "" 
-sleep 2.1
+sleep 0.9
 ip_whois
 ip_whois 2>/dev/null > IPWHOIS_Report.txt  
+echo "" 
 echo "Conducting Automated OSINT with ANY.GE API" 
+echo "" 
 echo "Any.ge Report:" 
 echo "" 
-curl  -sS https://any.ge/api/ip/api.php?$ip_address | tr -d "{}"
-curl  -sS https://any.ge/api/ip/api.php?$ip_address | tr -d "{}" 2>/dev/null > ANYGE_report.txt
+curl  -sS https://any.ge/api/ip/api.php?ip=$ip_address | tr -d "{}" | sort | column -t
+curl  -sS https://any.ge/api/ip/api.php?ip=$ip_address | tr -d "{}" | sort | column -t 2>/dev/null > ANYGE_report.txt
 
 # Google it
+echo "" 
 echo "Conducting Automated OSINT with GOOGLE" 
 sleep 2
 echo "" 
@@ -106,6 +109,7 @@ echo "URL : $gvar"
 #DShield
 echo "Conducting Automated OSINT with DSHIELD API" 
 sleep 0.9
+echo "" 
 echo "DShield API Report:" 
 echo "" 
 curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" | jq 
@@ -113,6 +117,7 @@ curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" | jq
 curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" | jq 2>/dev/null > DH_report.txt
 curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" | jq 2>/dev/null > DH_report.txt
 #Check List 
+echo "" 
 echo "Checking If IP Was Thought To Be Malicious Among 42905+ IP's" 
 
 sleep 2
@@ -124,7 +129,9 @@ elif [[ -n "$mal" ]]; then
   echo "Not Malicious" 
   echo "Didn't Match Any Malicious IP On List" > MAL_REPORT.txt
   fi
-
+echo "" 
+echo "" 
+echo "" 
 echo "<><><>| OSINT Finished !|<><><>" 
 echo "" 
 echo " <=========================>" 
