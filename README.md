@@ -20,6 +20,7 @@
 * Timezone name & Timezone
 * ISP
 * Malicious IP's & Malware 
+* Searches List Of 42905+ Known IP's 
 * Destination port a Malicious packet was sent to & Source port the blocked packet came from 
 * AS & Asname
 * Bgproute & Routedesc & Whoisdesc
@@ -63,7 +64,7 @@ Then :
 
 * Bulk IP Lookup
 * Get More Information About IP 
-* Detect Malicious IP Or If Reported (Improve) 
+* ~~Detect Malicious IP Or If Reported (Improve)~~
 
 ## This Script Uses :
 
@@ -74,7 +75,7 @@ Then :
 * DShield API
 * Any.ge IP Address API
 
-#### 
+#### ![](https://img.shields.io/badge/%20Bugs-f54f38) 
  
 If You Encounter Bugs Just Open An Issue 
 Or Dislike The Code Workarounds Or Spotted A Mistake All Contributions Are Really Appreciated :D
