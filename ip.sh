@@ -53,7 +53,8 @@ ip_whois
 echo "" 
 echo "Conducting Automated OSINT with ROBTEX FREE API:" 
 #workaround because I'm lazy 
-curl https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]"
+curl https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]"  
+ 
 echo "" 
 echo "Conducting Automated OSINT with THREAT CROWD" 
 curl https://www.threatcrowd.org/searchApi/v2/ip/report/?"$ip_address" | jq | tr -d "{}[]" 
