@@ -1,4 +1,4 @@
-# Automated IP-OSINT :
+# Automated IP Address-OSINT :
 [![License: IP OSINT](https://img.shields.io/badge/lP-OSINT-f39f37)](https://github.com/Phone-Metal/Ultra-IP-OSINT)  
 ![](https://img.shields.io/badge/Scripted%20In-Bash-f39f37)   ![](https://img.shields.io/badge/Status:%20Alpha-f54f38)
 #### A Simple Bash Script To Automated Your IP Information Gathering OSINT Needs. 
@@ -25,6 +25,7 @@
 * AS & Asname
 * Bgproute & Routedesc & Whoisdesc
 * Organisation 
+* IP ASN History of discovering an IP announced by ASN and the nearest prefix announcing it at a particular date
 
      ---
 
@@ -82,7 +83,8 @@ If You Encounter Bugs Just Open An Issue
 All Contributions Are Really Appreciated :D
 
 ### License : 
-
+Most Of The API's Are For Non-commercial Use Only, So To Avoid 
+Any Issues I Choose CC BY NC 
 
 #### Attribution-NonCommercial 4.0 International
 [![License: CC BY-NC 4.0](https://licensebuttons.net/l/by-nc/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc/4.0/)
