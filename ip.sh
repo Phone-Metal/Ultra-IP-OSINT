@@ -38,7 +38,6 @@ echo "Folder Created For Report"
 sleep 1.5 
 ip_whois() {
 
-echo -e "Conducting Automated OSINT With IPWHOIS"
 echo "" 
 echo "Currency  : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=currency)" 
 echo "Currency Rates : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=currency_rates)" 
@@ -85,6 +84,7 @@ echo ""
 curl -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 
 #call Function 
 echo "" 
+echo -e "Conducting Automated OSINT With IPWHOIS"
 sleep 0.9
 ip_whois
 echo "" 
@@ -102,6 +102,7 @@ echo ""
 gvar="https://www.google.com/search?&ie=UTF-8&oe=UTF-8&q=intext:%$ip_address" 
 echo "URL : $gvar"  
 #DShield
+echo "" 
 echo "Conducting Automated OSINT with DSHIELD API" 
 sleep 0.9
 echo "" 
@@ -119,8 +120,7 @@ if [[ -z "$mal" ]]; then
 echo "Match Found !,Thought To Be Malicious"
 elif [[ -n "$mal" ]]; then
   echo "Not Malicious" 
-  echo "Didn't Match Any Malicious IP On List" > MAL_REPORT.txt
-  fi
+   fi
 #ip asn
 echo "Conducting Automated OSINT With BGPRANKING-NG.CIRCL.LU" 
 echo "" 
@@ -130,12 +130,19 @@ curl -sS https://bgpranking-ng.circl.lu/ipasn_history/?ip=$ip_address | tr -d "{
 echo "" 
 echo "" 
 echo "" 
-echo "<><><>| OSINT Finished !|<><><>" 
+echo "<><><>| OSINT Finished !|<><><>"
+
+#Report 
+
+echo "The Reporting Is A Bit Buggy Will Be Fixed Soon" 
 echo "" 
+sleep 0.9
+echo "       |Please Wait|         " 
 echo " <=========================>" 
 echo "<|==> Generating Report <==|>"
 echo " <=========================>" 
 echo ""
+
 curl  -sS https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]" 2>/dev/null > ROBTEX_REPORT.txt
 curl -sS https://bgpranking-ng.circl.lu/ipasn_history/?ip=$ip_address | tr -d "{}" 2>/dev/null > BG_report.txt
 curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" 2>/dev/null > DH_report.txt
@@ -143,7 +150,8 @@ curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" 2>/dev/null
 curl -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 2>/dev/null > THREATCROWD_REPORT.txt
 ip_whois 2>/dev/null > IPWHOIS_Report.txt  
 curl  -sS https://any.ge/api/ip/api.php?ip=$ip_address | tr -d "{}" | sort | column -t 2>/dev/null > ANYGE_report.txt
-
+echo "Didn't Match Any Malicious IP On List" > MAL_REPORT.txt
+ 
 cat IPWHOIS_Report.txt BG_report.txt DH_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt > $ip_address-Report.txt
 rm -rf IPWHOIS_Report.txt BG_report.txt DH_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt
 echo -e "Output Should Be Saved To <IP address>.txt" 
@@ -155,6 +163,7 @@ read report
 if [ "$report" = "y" ]
 then
 echo "Using More To View Report" 
+sleep 0.9
    more $ip_address-Report.txt 
 else
    echo "Okay,You Can View It Another Time"
