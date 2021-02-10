@@ -35,8 +35,7 @@ read ip_address
 sleep 0.8
 mkdir $ip_address-Report && cd $ip_address-Report
 echo "Start Time : $(date)" 
-echo "Folder Created For Report"
-ls 
+echo "Folder Created For Report in $(pwd)"
 echo "Starting Recon" 
 sleep 2 
 ip_whois() {
