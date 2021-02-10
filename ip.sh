@@ -32,12 +32,12 @@ echo -e " \e[32mEnter IP Address:"
 #echo "\(Note: The Report Feature Is A Bit Buggy)"
 read ip_address 
 sleep 0.8
-mkdir $ip_address-Report && cd $ip_address-Report/
+mkdir $ip_address-Report && cd $ip_address-Report
 echo "Start Time : $(date)" 
-echo "Current Directory: $(pwd)" 
+echo "Folder Created For Report" 
 sleep 1.5 
 ip_whois() {
-sleep 0.7
+
 echo -e "Conducting Automated OSINT With IPWHOIS"
 echo "" 
 echo "Currency  : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=currency)" 
@@ -114,8 +114,8 @@ echo "DShield API Report:"
 echo "" 
 curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" 
 curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" 
-curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" | jq 2>/dev/null > DH_report.txt
-curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" | jq 2>/dev/null > DH_report.txt
+curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" 2>/dev/null > DH_report.txt
+curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" 2>/dev/null > DH_report.txt
 #Check List 
 echo "" 
 echo "Checking If IP Was Thought To Be Malicious Among 42905+ IP's" 
@@ -133,8 +133,8 @@ echo "Conducting Automated OSINT With BGPRANKING-NG.CIRCL.LU"
 echo "" 
 echo "bgpranking-ng.circl.lu report:" 
 echo "" 
-curl -sS https://bgpranking-ng.circl.lu/ipasn_history/?ip=$ip_address | tr -d "{}" | sort
-curl -sS https://bgpranking-ng.circl.lu/ipasn_history/?ip=$ip_address | tr -d "{}" | sort 2>/dev/null > BG_report.txt
+curl -sS https://bgpranking-ng.circl.lu/ipasn_history/?ip=$ip_address | tr -d "{}" 
+curl -sS https://bgpranking-ng.circl.lu/ipasn_history/?ip=$ip_address | tr -d "{}" 2>/dev/null > BG_report.txt
 echo "" 
 echo "" 
 echo "" 
@@ -145,15 +145,16 @@ echo "<|==> Generating Report <==|>"
 echo " <=========================>" 
 echo "" 
 cat IPWHOIS_Report.txt BG_report.txt DH_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt > $ip_address-Report.txt
-rm -rf IPWHOIS_Report.txt BG_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt
+rm -rf IPWHOIS_Report.txt BG_report.txt DH_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt
 echo -e "Output Should Be Saved To <IP address>.txt" 
 sleep 1.9
 echo "View Report Now?(y/n)" 
-echo "Note Press ENTER <-| For Next Page/Info" 
-sleep 0.9
+#echo "Note Press ENTER <-| For Next Page/Info" 
+#sleep 0.9
 read report
-if [ $report == y ]
+if [ "$report" = "y" ]
 then
+echo "Using More To View Report" 
    more $ip_address-Report.txt 
 else
    echo "Okay,You Can View It Another Time"
