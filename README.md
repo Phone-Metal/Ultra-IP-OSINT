@@ -64,7 +64,8 @@ Then :
 ### To do :
 
 * Bulk IP Lookup
-* Get More Information About IP 
+* Get More Information About IP
+* Weather Details About IP's Location 
 * ~~Detect Malicious IP Or If Reported (Improve)~~
 
 ## This Script Uses :
@@ -76,10 +77,11 @@ Then :
 * DShield API
 * Any.ge IP Address API
 * Manually Curated IP Blocklist by Pallebone
+* D4-project 
 
 #### ![](https://img.shields.io/badge/%20Bugs-f54f38) 
  
-If You Encounter Bugs Just Open An Issue 
+If You Encounter Bugs  or Spotted Mistakes Just Open An Issue 
 All Contributions Are Really Appreciated :D
 
 ### License : 
