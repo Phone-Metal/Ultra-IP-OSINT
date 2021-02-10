@@ -102,7 +102,7 @@ curl  -sS https://any.ge/api/ip/api.php?ip=$ip_address | tr -d "{}" | sort | col
 # Google it
 echo "" 
 echo "Conducting Automated OSINT with GOOGLE" 
-sleep 2
+sleep 1.9
 echo "" 
 gvar="https://www.google.com/search?&ie=UTF-8&oe=UTF-8&q=intext:%$ip_address" 
 echo "URL : $gvar"  
@@ -112,15 +112,14 @@ sleep 0.9
 echo "" 
 echo "DShield API Report:" 
 echo "" 
-curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" | jq 
-curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" | jq
+curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" 
+curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" 
 curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" | jq 2>/dev/null > DH_report.txt
 curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" | jq 2>/dev/null > DH_report.txt
 #Check List 
 echo "" 
 echo "Checking If IP Was Thought To Be Malicious Among 42905+ IP's" 
-
-sleep 2
+sleep 1.1
 echo "" 
 mal="grep -n "$ip_address" BlockIP.txt"
 if [[ -z "$mal" ]]; then
@@ -129,6 +128,13 @@ elif [[ -n "$mal" ]]; then
   echo "Not Malicious" 
   echo "Didn't Match Any Malicious IP On List" > MAL_REPORT.txt
   fi
+#ip asn
+echo "Conducting Automated OSINT With BGPRANKING-NG.CIRCL.LU" 
+echo "" 
+echo "bgpranking-ng.circl.lu report:" 
+echo "" 
+curl -sS https://bgpranking-ng.circl.lu/ipasn_history/?ip=$ip_address | tr -d "{}" | sort
+curl -sS https://bgpranking-ng.circl.lu/ipasn_history/?ip=$ip_address | tr -d "{}" | sort 2>/dev/null > BG_report.txt
 echo "" 
 echo "" 
 echo "" 
@@ -137,8 +143,9 @@ echo ""
 echo " <=========================>" 
 echo "<|==> Generating Report <==|>"
 echo " <=========================>" 
-cat IPWHOIS_Report.txt DH_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt > $ip_address-Report.txt
-rm -rf IPWHOIS_Report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt
+echo "" 
+cat IPWHOIS_Report.txt BG_report.txt DH_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt > $ip_address-Report.txt
+rm -rf IPWHOIS_Report.txt BG_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt
 echo -e "Output Should Be Saved To <IP address>.txt" 
 sleep 1.9
 echo "View Report Now?(y/n)" 
