@@ -1,7 +1,8 @@
 #!/bin/bash
 #Draft ip
 #Created By Phone-Metal (https://github.com/Phone-Metal) 
-#Attribution-NonCommercial 4.0 International License 
+#some apis are for non-commercial use only 
+#so to avoid conflict this script is Licensed Under : Attribution-NonCommercial 4.0 International License 
 
 #Not the best code but still works :D
 
@@ -28,14 +29,16 @@ sleep 1
 clear
 banner_func 
 echo -e "" 	
-echo -e " \e[32mEnter IP Address:"
+echo -e " \e[32mEnter a IP Address:"
 #echo "\(Note: The Report Feature Is A Bit Buggy)"
 read ip_address 
 sleep 0.8
 mkdir $ip_address-Report && cd $ip_address-Report
 echo "Start Time : $(date)" 
-echo "Folder Created For Report" 
-sleep 1.5 
+echo "Folder Created For Report"
+ls 
+echo "Starting Recon" 
+sleep 2 
 ip_whois() {
 
 echo "" 
@@ -128,7 +131,10 @@ echo "bgpranking-ng.circl.lu report:"
 echo "" 
 curl -sS https://bgpranking-ng.circl.lu/ipasn_history/?ip=$ip_address | tr -d "{}" 
 echo "" 
-echo "" 
+echo ""
+echo "Conducting Automated OSINT with BARRACUDA REPUTATION" 
+echo "URL : https://www.barracudacentral.org/lookups/lookup-reputation" 
+sleep 0.7
 echo "" 
 echo "<><><>| OSINT Finished !|<><><>"
 
@@ -151,7 +157,7 @@ curl -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq
 ip_whois 2>/dev/null > IPWHOIS_Report.txt  
 curl  -sS https://any.ge/api/ip/api.php?ip=$ip_address | tr -d "{}" | sort | column -t 2>/dev/null > ANYGE_report.txt
 echo "Didn't Match Any Malicious IP On List" > MAL_REPORT.txt
- 
+
 cat IPWHOIS_Report.txt BG_report.txt DH_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt > $ip_address-Report.txt
 rm -rf IPWHOIS_Report.txt BG_report.txt DH_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt
 echo -e "Output Should Be Saved To <IP address>.txt" 
@@ -168,4 +174,4 @@ sleep 0.9
 else
    echo "Okay,You Can View It Another Time"
 fi 
-echo "If Something Went Wrong Please Consider Opening An Issue Or If You Want To Recommended An API"
+echo "If Something Went Wrong Please Consider Opening An Issue Or Open One If You Want To Recommended An API"
