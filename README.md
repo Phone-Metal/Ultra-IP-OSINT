@@ -24,7 +24,7 @@
 * ISP
 * Malicious IP's & Malware 
 * Searches List Of 42905+ Known IP's 
-* ~~Destination port a Malicious packet was sent to & Source port the blocked packet came from~~ (Currently Not Working Will Be Fixed Soon) 
+* ~~Destination port a Malicious packet was sent to & Source port the blocked packet came from~~ Doesn't Work (Might Be Fixed Soon) 
 * AS & Asname
 * Bgproute & Routedesc & Whoisdesc
 
