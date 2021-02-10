@@ -1,5 +1,6 @@
 # Automated IP Address-OSINT :
 [![License: IP OSINT](https://img.shields.io/badge/lP-OSINT-f39f37)](https://github.com/Phone-Metal/Ultra-IP-OSINT)  
+ 
 ![](https://img.shields.io/badge/Scripted%20In-Bash-f39f37)   ![](https://img.shields.io/badge/Status:%20Alpha-f54f38)
 #### A Simple Bash Script To Automated Your IP Information Gathering OSINT Needs. 
 ![IP OSINT](https://github.com/Phone-Metal/IP-OSINT-/blob/main/1612767709-picsay.png)
@@ -31,7 +32,7 @@
 
 ### Installing : 
 
-Should Work With Anything That Has [Bash](https://ftp.gnu.org/gnu/bash/) And The Basic Packages
+Should Work With Anything That Has ![](https://img.shields.io/badge/Bash-green.svg) [(Get It Here)](https://ftp.gnu.org/gnu/bash/) And The Basic Packages
 
 #### For Debian Based Systems (Including *Termux*) :
 
@@ -65,7 +66,9 @@ Then :
 
 * Bulk IP Lookup
 * Get More Information About IP
-* Weather Details About IP's Location 
+* Weather Details About IP's Location
+* Get Information About Reverse DNS of the IP & Mobile connection
+* Detect Any Proxy or VPN or Tor exit address
 * ~~Detect Malicious IP Or If Reported (Improve)~~
 
 ## This Script Uses :
@@ -78,6 +81,7 @@ Then :
 * Any.ge IP Address API
 * Manually Curated IP Blocklist by Pallebone
 * D4-project 
+* Barracuda Reputation
 
 #### ![](https://img.shields.io/badge/%20Bugs-f54f38) 
  
