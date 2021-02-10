@@ -63,7 +63,6 @@ echo "Timezone : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=timezo
 echo ""
 echo "Organisation : $(curl  -sS http://ipwhois.app/line/"$ip_address"?objects=org)" 
 echo ""
-echo "Amount of Free IPWHOIS API calls for the current month : $(curl -sS http://ipwhois.app/line/"$ip_address"?objects=completed_requests)"
 } 
 
 echo "" 
@@ -75,7 +74,6 @@ sleep 1.5
 echo "Robtex Report:"
 echo ""
 curl  -sS https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]"  
-curl  -sS https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]" 2>/dev/null > ROBTEX_REPORT.txt
 #TC
 sleep 1.9
 echo "" 
@@ -85,19 +83,16 @@ echo ""
 echo "Threat Crowd Report:" 
 echo ""
 curl -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 
-curl -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 2>/dev/null > THREATCROWD_REPORT.txt
 #call Function 
 echo "" 
 sleep 0.9
 ip_whois
-ip_whois 2>/dev/null > IPWHOIS_Report.txt  
 echo "" 
 echo "Conducting Automated OSINT with ANY.GE API" 
 echo "" 
 echo "Any.ge Report:" 
 echo "" 
 curl  -sS https://any.ge/api/ip/api.php?ip=$ip_address | tr -d "{}" | sort | column -t
-curl  -sS https://any.ge/api/ip/api.php?ip=$ip_address | tr -d "{}" | sort | column -t 2>/dev/null > ANYGE_report.txt
 
 # Google it
 echo "" 
@@ -114,8 +109,6 @@ echo "DShield API Report:"
 echo "" 
 curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" 
 curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" 
-curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" 2>/dev/null > DH_report.txt
-curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" 2>/dev/null > DH_report.txt
 #Check List 
 echo "" 
 echo "Checking If IP Was Thought To Be Malicious Among 42905+ IP's" 
@@ -134,7 +127,6 @@ echo ""
 echo "bgpranking-ng.circl.lu report:" 
 echo "" 
 curl -sS https://bgpranking-ng.circl.lu/ipasn_history/?ip=$ip_address | tr -d "{}" 
-curl -sS https://bgpranking-ng.circl.lu/ipasn_history/?ip=$ip_address | tr -d "{}" 2>/dev/null > BG_report.txt
 echo "" 
 echo "" 
 echo "" 
@@ -143,7 +135,15 @@ echo ""
 echo " <=========================>" 
 echo "<|==> Generating Report <==|>"
 echo " <=========================>" 
-echo "" 
+echo ""
+curl  -sS https://freeapi.robtex.com/ipquery/"$ip_address" | jq | tr -d "}{[]" 2>/dev/null > ROBTEX_REPORT.txt
+curl -sS https://bgpranking-ng.circl.lu/ipasn_history/?ip=$ip_address | tr -d "{}" 2>/dev/null > BG_report.txt
+curl -sS http://isc.sans.edu/api/ip/$ip_address | tr -d "{}" 2>/dev/null > DH_report.txt
+curl -sS https://isc.sans.edu/api/ipdetails/$ip_address | tr -d "{}" 2>/dev/null > DH_report.txt
+curl -sS https://www.threatcrowd.org/searchApi/v2/ip/report/?ip=$ip_address | jq | tr -d "{}[]" 2>/dev/null > THREATCROWD_REPORT.txt
+ip_whois 2>/dev/null > IPWHOIS_Report.txt  
+curl  -sS https://any.ge/api/ip/api.php?ip=$ip_address | tr -d "{}" | sort | column -t 2>/dev/null > ANYGE_report.txt
+
 cat IPWHOIS_Report.txt BG_report.txt DH_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt > $ip_address-Report.txt
 rm -rf IPWHOIS_Report.txt BG_report.txt DH_report.txt MAL_REPORT.txt ANYGE_report.txt ROBTEX_REPORT.txt THREATCROWD_REPORT.txt
 echo -e "Output Should Be Saved To <IP address>.txt" 
