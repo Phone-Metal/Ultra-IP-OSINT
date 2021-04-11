@@ -29,7 +29,8 @@
 * Bgproute & Routedesc & Whoisdesc
 
      ---
-
+## Installing :
+[See INSTALL.md](https://github.com/Phone-Metal/Ultra-IP-OSINT/blob/main/INSTALL.md) 
 
 ### To do :
 
