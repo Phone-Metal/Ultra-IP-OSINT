@@ -1,36 +1,35 @@
-# Automated IP Address-OSINT :
-[![License: IP OSINT](https://img.shields.io/badge/lP-OSINT-f39f37)](https://github.com/Phone-Metal/Ultra-IP-OSINT)  
- 
-![](https://img.shields.io/badge/Scripted%20In-Bash-f39f37)   ![](https://img.shields.io/badge/Status:%20Alpha-f54f38)
-#### A Simple Bash Script To Automated Your IP Information Gathering OSINT Needs. 
-![IP OSINT](https://github.com/Phone-Metal/IP-OSINT-/blob/main/1612767709-picsay.png)
-## Features :
+ Automated IP Address Information Gathering Script/Tool Written In Golang
 
-<--> Currently Queries And Gets Detailed Information About :
+
+<img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" />
+
+## Features:
+
+* Lightweight 
+* Fast (?) 
+* Works Without API keys
+
+## Installing :
+ 
+
+## Gets Information Regarding:
 
 * Currency Code-Rates-Symbol
-* IP address type
-* Organisation 
+* IP address type,Organisation 
 * IP ASN History of discovering an IP announced by ASN and the nearest prefix announcing it at a particular date
-* City & Region
 * Protocols 
 * Reports or Records 
 * Longitude & Latitude
-* Country neighbours 
-* Country phone 
-* Country capital 
-* Country code 
-* Timezone name & Timezone
+* Country code,phone,capital,City & Region
+* Timezone
 * ISP
-* Malicious IP's & Malware 
-* Searches List Of 42905+ Known IP's 
-* ~~Destination port a Malicious packet was sent to & Source port the blocked packet came from~~ Doesn't Work (Might Be Fixed Soon) 
+* Malicious IP's 
 * AS & Asname
 * Bgproute & Routedesc & Whoisdesc
 
-     ---
-## Installing :
-[See INSTALL.md](https://github.com/Phone-Metal/Ultra-IP-OSINT/blob/main/INSTALL.md) 
+
+
+
 
 ### To do :
 
@@ -39,7 +38,7 @@
 * Weather Details About IP's Location
 * Get Information About Reverse DNS of the IP & Mobile connection
 * Detect Any Proxy or VPN or Tor exit address
-* ~~Detect Malicious IP Or If Reported (Improve)~~
+* Detect Malicious IP Or If Reported
 
 ## This Script Uses :
 
